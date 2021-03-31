@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		F66A97412613ACDC005C2972 /* dogBreedRandomImages.json in Resources */ = {isa = PBXBuildFile; fileRef = F66A97402613ACDC005C2972 /* dogBreedRandomImages.json */; };
 		F66A97452613AD03005C2972 /* dogBreedRandomImage.json in Resources */ = {isa = PBXBuildFile; fileRef = F66A97442613AD03005C2972 /* dogBreedRandomImage.json */; };
 		F6BEFA7B2614EAD2001E6920 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEFA7A2614EAD2001E6920 /* StorageManager.swift */; };
+		F6BEFA842614F87D001E6920 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F6BEFA832614F87D001E6920 /* SDWebImage */; };
 		F6CE9FFF260B79C700E80D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE9FFE260B79C700E80D36 /* AppDelegate.swift */; };
 		F6CEA001260B79C700E80D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CEA000260B79C700E80D36 /* SceneDelegate.swift */; };
 		F6CEA008260B79CA00E80D36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6CEA007260B79CA00E80D36 /* Assets.xcassets */; };
@@ -23,7 +24,7 @@
 		F6CEA02C260C998500E80D36 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CEA02B260C998500E80D36 /* ApiService.swift */; };
 		F6E40A7E2614DDF5005A751B /* BreedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E40A7D2614DDF5005A751B /* BreedViewCell.swift */; };
 		F6E40A822614DE91005A751B /* BreedfeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E40A812614DE91005A751B /* BreedfeedController.swift */; };
-		F6E40A862614DEDA005A751B /* BreedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E40A852614DEDA005A751B /* BreedDetailView.swift */; };
+		F6E40A862614DEDA005A751B /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E40A852614DEDA005A751B /* BreedDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +33,7 @@
 			containerPortal = F6CE9FF3260B79C700E80D36 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F6CE9FFA260B79C700E80D36;
-			remoteInfo = testProjectAlturos;
+			remoteInfo = DailyDogs;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,7 +58,7 @@
 		F6CEA02B260C998500E80D36 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F6E40A7D2614DDF5005A751B /* BreedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewCell.swift; sourceTree = "<group>"; };
 		F6E40A812614DE91005A751B /* BreedfeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedfeedController.swift; sourceTree = "<group>"; };
-		F6E40A852614DEDA005A751B /* BreedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailView.swift; sourceTree = "<group>"; };
+		F6E40A852614DEDA005A751B /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BEFA842614F87D001E6920 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +166,7 @@
 			children = (
 				F6E40A7D2614DDF5005A751B /* BreedViewCell.swift */,
 				F6E40A812614DE91005A751B /* BreedfeedController.swift */,
-				F6E40A852614DEDA005A751B /* BreedDetailView.swift */,
+				F6E40A852614DEDA005A751B /* BreedDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,7 +188,7 @@
 				F66A971A261396E5005C2972 /* PBXTargetDependency */,
 			);
 			name = DailyDogsTests;
-			productName = testProjectAlturosTests;
+			productName = DailyDogsTests;
 			productReference = F66A9714261396E5005C2972 /* DailyDogsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -203,7 +205,10 @@
 			dependencies = (
 			);
 			name = DailyDogs;
-			productName = testProjectAlturos;
+			packageProductDependencies = (
+				F6BEFA832614F87D001E6920 /* SDWebImage */,
+			);
+			productName = DailyDogs;
 			productReference = F6CE9FFB260B79C700E80D36 /* DailyDogs.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -234,6 +239,9 @@
 				Base,
 			);
 			mainGroup = F6CE9FF2260B79C700E80D36;
+			packageReferences = (
+				F6BEFA822614F87D001E6920 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = F6CE9FFC260B79C700E80D36 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,7 +295,7 @@
 				F6E40A822614DE91005A751B /* BreedfeedController.swift in Sources */,
 				F6CEA001260B79C700E80D36 /* SceneDelegate.swift in Sources */,
 				F6CEA020260B8DD200E80D36 /* Breed.swift in Sources */,
-				F6E40A862614DEDA005A751B /* BreedDetailView.swift in Sources */,
+				F6E40A862614DEDA005A751B /* BreedDetailViewController.swift in Sources */,
 				F6CEA029260C993600E80D36 /* NetworkClient.swift in Sources */,
 				F6CEA02C260C998500E80D36 /* ApiService.swift in Sources */,
 			);
@@ -321,13 +329,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QX45C27DZH;
-				INFOPLIST_FILE = testProjectAlturosTests/Info.plist;
+				INFOPLIST_FILE = DailyDogsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.testProjectAlturosTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.DailyDogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,13 +349,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QX45C27DZH;
-				INFOPLIST_FILE = testProjectAlturosTests/Info.plist;
+				INFOPLIST_FILE = DailyDogsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.testProjectAlturosTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.DailyDogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.testProjectAlturos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramonaCvelf.DailyDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,7 +511,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingschool.testProjectAlturos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramonaCvelf.DailyDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,6 +549,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F6BEFA822614F87D001E6920 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F6BEFA832614F87D001E6920 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6BEFA822614F87D001E6920 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F6CE9FF3260B79C700E80D36 /* Project object */;
 }

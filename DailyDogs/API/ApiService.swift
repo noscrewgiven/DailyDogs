@@ -83,6 +83,7 @@ class ApiService {
                 
             case .success(let images):
                 breed.images = images
+                breed.didLoadImagesFromApi = true
             }
             
             group.leave()

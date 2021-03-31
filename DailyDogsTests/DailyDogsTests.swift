@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import testProjectAlturos
+@testable import DailyDogs
 
 func readLocalFile(with bundle: Bundle, forName name: String) -> Data? {
     do {
@@ -102,7 +102,7 @@ class testProjectAlturosTests: XCTestCase {
             XCTFail("Failed to find australian")
             return
         }
-        
+        XCTAssertFalse(dogBreeds[idx].didLoadImagesFromApi)
         service.getImagesForBreed(dogBreeds[idx], count: 3, completion: { result in
             switch result {
             case .failure(let error):
@@ -118,5 +118,6 @@ class testProjectAlturosTests: XCTestCase {
         
         XCTAssertEqual(dogBreeds[idx].images?.count, 3)
         XCTAssertEqual(dogBreeds[idx].subBreeds[0].images?.count, 3)
+        XCTAssertTrue(dogBreeds[idx].didLoadImagesFromApi)
     }
 }
