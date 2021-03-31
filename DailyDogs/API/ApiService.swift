@@ -40,6 +40,7 @@ class ApiService {
         var breeds = breedsIn
         
         for (index, breed) in breeds.enumerated() {
+            group.enter()
             getImagesForBreed(breed, count: count) { result in
                 switch result {
                 case .failure(let e):
