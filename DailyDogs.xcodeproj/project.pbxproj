@@ -13,6 +13,7 @@
 		F66A973D2613AC4D005C2972 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A973C2613AC4D005C2972 /* URL+Extension.swift */; };
 		F66A97412613ACDC005C2972 /* dogBreedRandomImages.json in Resources */ = {isa = PBXBuildFile; fileRef = F66A97402613ACDC005C2972 /* dogBreedRandomImages.json */; };
 		F66A97452613AD03005C2972 /* dogBreedRandomImage.json in Resources */ = {isa = PBXBuildFile; fileRef = F66A97442613AD03005C2972 /* dogBreedRandomImage.json */; };
+		F6BEFA7B2614EAD2001E6920 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEFA7A2614EAD2001E6920 /* StorageManager.swift */; };
 		F6CE9FFF260B79C700E80D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE9FFE260B79C700E80D36 /* AppDelegate.swift */; };
 		F6CEA001260B79C700E80D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CEA000260B79C700E80D36 /* SceneDelegate.swift */; };
 		F6CEA008260B79CA00E80D36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6CEA007260B79CA00E80D36 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		F66A973C2613AC4D005C2972 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		F66A97402613ACDC005C2972 /* dogBreedRandomImages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogBreedRandomImages.json; sourceTree = "<group>"; };
 		F66A97442613AD03005C2972 /* dogBreedRandomImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogBreedRandomImage.json; sourceTree = "<group>"; };
+		F6BEFA7A2614EAD2001E6920 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F6CE9FFB260B79C700E80D36 /* DailyDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CE9FFE260B79C700E80D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6CEA000260B79C700E80D36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = DailyDogsTests;
 			sourceTree = "<group>";
 		};
+		F6BEFA792614EAAD001E6920 /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F6BEFA7A2614EAD2001E6920 /* StorageManager.swift */,
+			);
+			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
 		F6CE9FF2260B79C700E80D36 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 				F6CEA031260C9B4C00E80D36 /* SupportingFiles */,
 				F6CEA032260C9B7E00E80D36 /* Views */,
 				F6CEA02F260C9A2F00E80D36 /* Model */,
+				F6BEFA792614EAAD001E6920 /* PersistentStorage */,
 				F6CEA02E260C9A1D00E80D36 /* API */,
 			);
 			path = DailyDogs;
@@ -270,6 +281,7 @@
 			files = (
 				F66A972D2613A461005C2972 /* ApiDecoder.swift in Sources */,
 				F66A973D2613AC4D005C2972 /* URL+Extension.swift in Sources */,
+				F6BEFA7B2614EAD2001E6920 /* StorageManager.swift in Sources */,
 				F6CE9FFF260B79C700E80D36 /* AppDelegate.swift in Sources */,
 				F6E40A7E2614DDF5005A751B /* BreedViewCell.swift in Sources */,
 				F6E40A822614DE91005A751B /* BreedfeedController.swift in Sources */,
