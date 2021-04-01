@@ -130,7 +130,7 @@ class BreedDetailViewController: UIViewController {
     }
     
     private func setRandomImage() {
-        breedImageView.sd_setImage(with: URL(string: self.currentImageList?.randomElement() ?? ""), placeholderImage: UIImage(named: "BreedImagePlaceholder"))
+        breedImageView.sd_setImage(with: URL(string: self.currentImageList?.randomElement() ?? ""), placeholderImage: UIImage(named: "DetailBreedImagePlaceholder"))
     }
 }
 
