@@ -9,11 +9,11 @@ import Foundation
 
 struct Breed: Hashable {
     static func == (lhs: Breed, rhs: Breed) -> Bool {
-        lhs.name == rhs.name && lhs.images == rhs.images
+        lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
+        hasher.combine(id)
     }
     
     var didLoadImagesFromApi: Bool = false
@@ -25,6 +25,8 @@ struct Breed: Hashable {
         var name: String
         var images: [String]?
     }
+    
+    private let id = UUID()
 }
 
 class BreedModel {

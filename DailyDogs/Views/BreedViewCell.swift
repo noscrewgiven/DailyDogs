@@ -14,22 +14,29 @@ class BreedViewCell: UICollectionViewCell {
     
     private let horizontalStackView: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.isLayoutMarginsRelativeArrangement = true
+        $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 6, leading: 2, bottom: 6, trailing: 2)
         $0.axis = .horizontal
-        $0.distribution = .fillEqually
+        $0.distribution = .fill
+        $0.spacing = 8
         
         return $0
     }(UIStackView())
     
     private let breedImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
+        $0.layer.cornerRadius = 30
+        
 
         return $0
     }(UIImageView())
     
     private let breedNameLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = .boldSystemFont(ofSize: 20)
+        
         return $0
     }(UILabel())
     
@@ -53,7 +60,7 @@ class BreedViewCell: UICollectionViewCell {
             horizontalStackView.trailingAnchor.constraint(equalTo:  contentView.layoutMarginsGuide.trailingAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            breedImageView.heightAnchor.constraint(equalToConstant: 45),
+            breedImageView.heightAnchor.constraint(equalToConstant: 60),
             breedImageView.widthAnchor.constraint(equalTo: breedImageView.heightAnchor)
         ])
     }
@@ -62,6 +69,8 @@ class BreedViewCell: UICollectionViewCell {
         self.breed = breed
         breedImageView.sd_setImage(with: URL(string: self.breed?.images?[0] ?? ""), placeholderImage: UIImage(named: "BreedImagePlaceholder"))
         
-        breedNameLabel.text = self.breed?.name ?? ""
+        breedNameLabel.text = self.breed?.name.capitalizingFirstLetter() ?? ""
     }
 }
+
+

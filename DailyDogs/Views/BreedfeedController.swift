@@ -15,13 +15,14 @@ enum Section {
 class BreedfeedController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Breed>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Breed>
+    typealias SnapshotDogOfTheDay = NSDiffableDataSourceSnapshot<Section, String>
     
     private lazy var dataSource = makeDataSource()
     var breedModel = BreedModel()
     
     let collectionView: UICollectionView = {
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
-        config.showsSeparators = false
+        config.showsSeparators = true
         
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         
@@ -35,10 +36,11 @@ class BreedfeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.navigationItem.title = "Daily Dogs"
         collectionView.delegate = self
         
         breedModel.loadBreedsFromApi {
-            self.breedModel.loadImagesForBreedsAndSubBreeds(count: 3) {
+            self.breedModel.loadImagesForBreedsAndSubBreeds(count: 10) {
                 self.applySnapshot()
             }
         }

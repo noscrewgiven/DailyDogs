@@ -16,19 +16,32 @@ class BreedDetailViewController: UIViewController {
     private let verticalStackView: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
+        $0.distribution = .fill
+        $0.isLayoutMarginsRelativeArrangement = true
+        $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 6, trailing: 0)
+        $0.spacing = 12
         
+        return $0
+    }(UIStackView())
+    
+    private let horizontalStackView: UIStackView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.axis = .horizontal
+
         return $0
     }(UIStackView())
     
     private let breedNameLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        
+        $0.font = .boldSystemFont(ofSize: 40)
+        $0.textAlignment = .center
+
         return $0
     }(UILabel())
     
     private let breedImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         
         return $0
@@ -42,15 +55,16 @@ class BreedDetailViewController: UIViewController {
     
     private let cancelButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Cancel", for: .normal)
-        $0.backgroundColor = .systemGray4
+        $0.tintColor = .systemBlue
+        $0.setImage(UIImage(systemName: "multiply")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
+
         return $0
     }(UIButton())
     
     private let randomImageButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Random", for: .normal)
-        $0.backgroundColor = .systemGray4
+        $0.tintColor = .systemBlue
+        $0.setImage(UIImage(systemName: "shuffle.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
         
         return $0
     }(UIButton())
@@ -65,19 +79,25 @@ class BreedDetailViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(verticalStackView)
-        verticalStackView.addArrangedSubview(cancelButton)
+        
+        verticalStackView.addArrangedSubview(horizontalStackView)
+        horizontalStackView.addArrangedSubview(cancelButton)
+        horizontalStackView.addArrangedSubview(UIView())
+        horizontalStackView.addArrangedSubview(randomImageButton)
+        
         verticalStackView.addArrangedSubview(breedNameLabel)
         verticalStackView.addArrangedSubview(breedImageView)
+        verticalStackView.addArrangedSubview(UIView())
         verticalStackView.addArrangedSubview(subBreedPickerView)
-        verticalStackView.addArrangedSubview(randomImageButton)
+        
         
         NSLayoutConstraint.activate([
-            verticalStackView.topAnchor.constraint(equalTo: view.topAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo:  view.layoutMarginsGuide.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             
-            breedImageView.heightAnchor.constraint(equalToConstant: 45),
+            breedImageView.heightAnchor.constraint(equalToConstant: 90),
             breedImageView.widthAnchor.constraint(equalTo: breedImageView.heightAnchor)
         ])
         
@@ -104,7 +124,8 @@ class BreedDetailViewController: UIViewController {
             currentImageList = self.breed?.subBreeds[0].images
         }
         
-        breedNameLabel.text = self.breed?.name ?? ""
+        breedNameLabel.text = self.breed?.name.capitalizingFirstLetter() ?? ""
+
         setRandomImage()
     }
     
@@ -133,5 +154,15 @@ extension BreedDetailViewController: UIPickerViewDelegate {
             self.currentImageList = selectedSubBreed.images
             self.setRandomImage()
         }
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }
