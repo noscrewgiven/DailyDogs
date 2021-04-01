@@ -1,6 +1,6 @@
 //
 //  NetworkService.swift
-//  testProjectAlturos
+//  DailyDogs
 //
 //  Created by Ramona Cvelf on 25.03.21.
 //
@@ -51,7 +51,6 @@ class ApiService {
                 case .success(let breed):
                     breeds[index] = breed
                 }
-                
                 group.leave()
             }
         }
@@ -102,7 +101,6 @@ class ApiService {
                 case .success(let images):
                     breed.subBreeds[index].images = images
                 }
-                
                 group.leave()
             })
         }
@@ -111,12 +109,11 @@ class ApiService {
             if error == ApiError.None {
                 completion(.success(breed))
             } else {
-                // Call completion with first error occured
                 completion(.failure(error))
             }
         }
     }
-
+    
     func getImagesForBreed(name: String, subBreed: String?, count: Int, completion: @escaping (Result<[String], ApiError>) -> Void) {
         networkClient.get(endpoint: URL.randomImagesForBreed(name: name, subBreed: subBreed, count: count), completion: { result in
             switch result {

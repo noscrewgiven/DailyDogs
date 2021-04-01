@@ -1,6 +1,6 @@
 //
 //  ApiDecoder.swift
-//  testProjectAlturos
+//  DailyDogs
 //
 //  Created by Ramona Cvelf on 30.03.21.
 //
@@ -31,7 +31,6 @@ class ApiDecoder {
                         breed.subBreeds.append(Breed.SubBreed(name: subBreed))
                     }
                 }
-                
                 breeds.append(breed)
             }
             

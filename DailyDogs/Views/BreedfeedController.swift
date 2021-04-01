@@ -35,17 +35,15 @@ class BreedfeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         self.navigationItem.title = "Daily Dogs"
         collectionView.delegate = self
+        setupUI()
         
         breedModel.loadBreedsFromApi {
             self.breedModel.loadImagesForBreedsAndSubBreeds(count: 10) {
                 self.applySnapshot()
             }
         }
-        
-        // Anyway, apply snapshot from persistent storage
         self.applySnapshot()
     }
     
@@ -68,7 +66,6 @@ class BreedfeedController: UIViewController {
             cell.configure(breed)
             return cell
         })
-        
         return dataSource
     }
     

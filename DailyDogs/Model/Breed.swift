@@ -1,6 +1,6 @@
 //
 //  Breed.swift
-//  testProjectAlturos
+//  DailyDogs
 //
 //  Created by Ramona Cvelf on 24.03.21.
 //
@@ -49,7 +49,7 @@ class BreedModel {
             switch result {
             case .failure(let e):
                 print("Failed loading Breeds from API with \(e)")
-            
+                
             case .success(let breeds):
                 self.breeds = breeds
                 

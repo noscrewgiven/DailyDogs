@@ -27,7 +27,7 @@ class BreedDetailViewController: UIViewController {
     private let horizontalStackView: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .horizontal
-
+        
         return $0
     }(UIStackView())
     
@@ -35,7 +35,7 @@ class BreedDetailViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = .boldSystemFont(ofSize: 40)
         $0.textAlignment = .center
-
+        
         return $0
     }(UILabel())
     
@@ -57,7 +57,7 @@ class BreedDetailViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.tintColor = .systemBlue
         $0.setImage(UIImage(systemName: "multiply")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
-
+        
         return $0
     }(UIButton())
     
@@ -81,15 +81,14 @@ class BreedDetailViewController: UIViewController {
         view.addSubview(verticalStackView)
         
         verticalStackView.addArrangedSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(cancelButton)
-        horizontalStackView.addArrangedSubview(UIView())
-        horizontalStackView.addArrangedSubview(randomImageButton)
-        
         verticalStackView.addArrangedSubview(breedNameLabel)
         verticalStackView.addArrangedSubview(breedImageView)
         verticalStackView.addArrangedSubview(UIView())
         verticalStackView.addArrangedSubview(subBreedPickerView)
         
+        horizontalStackView.addArrangedSubview(cancelButton)
+        horizontalStackView.addArrangedSubview(UIView())
+        horizontalStackView.addArrangedSubview(randomImageButton)
         
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -125,7 +124,7 @@ class BreedDetailViewController: UIViewController {
         }
         
         breedNameLabel.text = self.breed?.name.capitalizingFirstLetter() ?? ""
-
+        
         setRandomImage()
     }
     
@@ -161,7 +160,7 @@ extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
+    
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }

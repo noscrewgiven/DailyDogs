@@ -1,6 +1,6 @@
 //
 //  NetworkClient.swift
-//  testProjectAlturos
+//  DailyDogs
 //
 //  Created by Ramona Cvelf on 25.03.21.
 //

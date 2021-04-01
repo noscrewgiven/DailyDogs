@@ -1,6 +1,6 @@
 //
 //  URL+Extension.swift
-//  testProjectAlturos
+//  DailyDogs
 //
 //  Created by Ramona Cvelf on 30.03.21.
 //
@@ -12,7 +12,6 @@ extension URL {
         guard let url = URL(string: "https://dog.ceo/api/breeds/list/all") else {
             return nil
         }
-        
         return url
     }
     
@@ -27,7 +26,6 @@ extension URL {
             guard let url = URL(string: "https://dog.ceo/api/breed/\(name)/images/random/\(count)") else {
                 return nil
             }
-            
             return url
         }
     }

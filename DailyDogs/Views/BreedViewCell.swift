@@ -29,7 +29,6 @@ class BreedViewCell: UICollectionViewCell {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 30
         
-
         return $0
     }(UIImageView())
     
@@ -72,5 +71,3 @@ class BreedViewCell: UICollectionViewCell {
         breedNameLabel.text = self.breed?.name.capitalizingFirstLetter() ?? ""
     }
 }
-
-

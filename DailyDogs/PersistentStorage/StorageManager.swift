@@ -31,7 +31,6 @@ class StorageManager {
             for subBreed in breed.subBreeds {
                 subBreedNames.append(subBreed.name)
             }
-            
             persistentBreeds.append(BreedPersistentModel(name: breed.name, subBreeds: subBreedNames))
         }
         
@@ -68,7 +67,6 @@ class StorageManager {
         } catch {
             print("Failed loading breeds from file with error \(error).")
         }
-        
         return nil
     }
     
