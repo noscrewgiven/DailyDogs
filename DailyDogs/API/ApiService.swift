@@ -83,6 +83,7 @@ class ApiService {
                 
             case .success(let images):
                 breed.images = images
+                breed.didLoadImagesFromApi = true
             }
             
             group.leave()
@@ -127,7 +128,7 @@ class ApiService {
                 if let images = ApiDecoder.decodeRandomImages(from: data) {
                     completion(.success(images))
                 } else {
-                    print("Failed to decode API-Call randomImagesForBreed with: \(data)")
+                    print("Failed to decode API-Call randomImagesForBreed with data: \(String(decoding: data, as: UTF8.self))")
                     completion(.failure(ApiError.DecodingFailed))
                 }
             }
